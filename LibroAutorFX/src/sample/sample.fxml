@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<GridPane alignment="center" hgap="10" prefHeight="359.0" prefWidth="527.0" vgap="10" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+   <children>
+      <BorderPane prefHeight="359.0" prefWidth="625.0">
+         <top>
+            <MenuBar prefHeight="25.0" prefWidth="419.0" BorderPane.alignment="CENTER">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Close" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Delete" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </top>
+         <center>
+            <TabPane prefHeight="334.0" prefWidth="512.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+              <tabs>
+                <Tab text="Autores">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="305.0" prefWidth="537.0">
+                           <children>
+                              <TextField fx:id="txtNombreAutor" layoutX="19.0" layoutY="57.0" promptText="Nombre Autor" />
+                              <TextField fx:id="txtNacionalidad" layoutX="19.0" layoutY="98.0" promptText="Nacionalidad" />
+                              <Button fx:id="btnAltaAutores" layoutX="19.0" layoutY="176.0" mnemonicParsing="false" onAction="#callbackAltaAutor" text="Alta" />
+                              <ComboBox fx:id="cbPais" layoutX="18.0" layoutY="140.0" prefWidth="150.0" />
+                              <TableView fx:id="tbAutor" layoutX="183.0" layoutY="16.0" onMousePressed="#callbackClicTablaAutores" prefHeight="238.0" prefWidth="323.0">
+                                <columns>
+                                  <TableColumn fx:id="colIDAutor" prefWidth="75.0" text="ID" />
+                                  <TableColumn fx:id="colNombreAutor" prefWidth="75.0" text="Nombre" />
+                                    <TableColumn fx:id="colNacionalidad" prefWidth="103.0" text="Nacionalidad" />
+                                    <TableColumn fx:id="colPais" prefWidth="69.0" text="País" />
+                                </columns>
+                              </TableView>
+                              <Label fx:id="lblID" layoutX="48.0" layoutY="28.0" text="_">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="btnModificarAutor" layoutX="101.0" layoutY="176.0" mnemonicParsing="false" onMouseReleased="#callBackModificarTablaAutor" text="Modificar" />
+                              <Label layoutX="18.0" layoutY="28.0" text="ID:">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="btnEliminarAutor" layoutX="22.0" layoutY="220.0" mnemonicParsing="false" onAction="#callBackEliminaAutor" text="Eliminar" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab onSelectionChanged="#callBackrRecargaLibros" text="Libros">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <ComboBox fx:id="cbAutor" layoutX="14.0" layoutY="97.0" prefWidth="150.0" />
+                              <TextField fx:id="txtTitulo" layoutX="14.0" layoutY="56.0" promptText="Titulo de la obra" />
+                              <TextField fx:id="txtEditorial" layoutX="15.0" layoutY="140.0" promptText="Editorial" />
+                              <Button fx:id="btnAltaLibro" layoutX="23.0" layoutY="176.0" mnemonicParsing="false" onAction="#callbackAltaLibro" text="Alta Libro" />
+                              <TableView fx:id="tbLibro" layoutX="188.0" layoutY="14.0" onMouseReleased="#callbackClicTablaLibro" prefHeight="254.0" prefWidth="317.0">
+                                <columns>
+                                  <TableColumn fx:id="colIDLibro" prefWidth="75.0" text="ID" />
+                                  <TableColumn fx:id="colTitulo" prefWidth="75.0" text="TÍTULO" />
+                                    <TableColumn fx:id="colEditorial" prefWidth="83.0" text="EDITORIAL" />
+                                    <TableColumn fx:id="colAutor" prefWidth="83.0" text="AUTOR" />
+                                </columns>
+                              </TableView>
+                              <Label layoutX="15.0" layoutY="24.0" text="ID:">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lblIDLibro" layoutX="43.0" layoutY="26.0" text="_">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="btnModificarLibro" layoutX="97.0" layoutY="176.0" mnemonicParsing="false" onMouseReleased="#callBackModificarTablaLibro" text="Modificar" />
+                              <Button fx:id="btnEliminarLibro" layoutX="27.0" layoutY="219.0" mnemonicParsing="false" onAction="#callBackEliminaLibro" text="Eliminar" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                  <Tab fx:id="tabConsultas" text="Consultas">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TableView fx:id="tablaConsulta" layoutX="80.0" layoutY="66.0" prefHeight="200.0" prefWidth="365.0">
+                                <columns>
+                                  <TableColumn fx:id="colIDConsulta" prefWidth="39.0" text="ID" />
+                                  <TableColumn fx:id="colTituloConsulta" prefWidth="121.0" text="TITULO" />
+                                    <TableColumn fx:id="colEditorialConsulta" prefWidth="104.0" text="EDITORIAL" />
+                                    <TableColumn fx:id="colAutorConsulta" prefWidth="100.0" text="AUTOR" />
+                                </columns>
+                              </TableView>
+                              <TextField fx:id="txtBuscarLibro" layoutX="80.0" layoutY="25.0" prefHeight="25.0" prefWidth="298.0" />
+                              <Button fx:id="btnBuscarConsulta" layoutX="394.0" layoutY="25.0" mnemonicParsing="false" onAction="#callBackConsultar" text="Buscar" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+         </center>
+      </BorderPane>
+   </children>
+</GridPane>

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<GridPane alignment="center" hgap="10" prefHeight="584.0" prefWidth="709.0" vgap="10" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+    <columnConstraints>
+        <ColumnConstraints />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints />
+    </rowConstraints>
+    <children>
+        <BorderPane prefHeight="648.0" prefWidth="709.0">
+            <top>
+                <MenuBar prefHeight="25.0" prefWidth="419.0" style="-fx-background-color: #C9D3DE;" BorderPane.alignment="CENTER">
+                    <menus>
+                        <Menu mnemonicParsing="false" text="File">
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="Close" />
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Edit">
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="Delete" />
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Help">
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="About" />
+                            </items>
+                        </Menu>
+                    </menus>
+                </MenuBar>
+            </top>
+            <center>
+                <TabPane prefHeight="334.0" prefWidth="512.0" style="-fx-background-color: #7FB7F3;" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+                    <tabs>
+                        <Tab style="-fx-background-color: #76A6DC;" text="Examen">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="305.0" prefWidth="537.0" style="-fx-background-color: #B6C7DC;">
+                                    <children>
+                                        <Label fx:id="lblIDExamen" layoutX="129.0" layoutY="109.0" text="_">
+                                            <font>
+                                                <Font size="14.0" />
+                                            </font>
+                                        </Label>
+                              <TextField fx:id="txtMateria" layoutX="151.0" layoutY="107.0" prefHeight="25.0" prefWidth="406.0" promptText="Materia" />
+                                        <TextField fx:id="txtNombreExamen" layoutX="99.0" layoutY="141.0" prefHeight="25.0" prefWidth="456.0" promptText="Nombre del  Examen" />
+                                        <Button fx:id="btnAltaExamen" layoutX="98.0" layoutY="179.0" mnemonicParsing="false" onAction="#callbackAltaExamen" style="-fx-background-color: #25D385;" text="Alta" />
+                                        <Button fx:id="btnModificarExamen" layoutX="151.0" layoutY="179.0" mnemonicParsing="false" onAction="#callBackModificarTablaExamen" style="-fx-background-color: #1A8ED5;" text="Modificar" />
+                                        <Button fx:id="btnEliminarExamen" layoutX="232.0" layoutY="179.0" mnemonicParsing="false" onAction="#callBackEliminaExamen" style="-fx-background-color: #F1535A;" text="Eliminar" />
+                                        <TableView fx:id="tablaExamen" layoutX="99.0" layoutY="224.0" onMousePressed="#callbackClicTablaExamen" prefHeight="275.0" prefWidth="468.0">
+                                            <columns>
+                                                <TableColumn fx:id="colIDExamen" prefWidth="75.0" text="ID" />
+                                                <TableColumn fx:id="colNombreExamen" prefWidth="189.0" text="Nombre" />
+                                                <TableColumn fx:id="colMateria" prefWidth="203.0" text="Materia" />
+                                            </columns>
+                                        </TableView>
+                                        <Label layoutX="99.0" layoutY="109.0" text="ID:">
+                                            <font>
+                                                <Font size="14.0" />
+                                            </font>
+                                        </Label>
+                              <Label layoutX="171.0" layoutY="14.0" prefHeight="84.0" prefWidth="367.0" text="Exámenes">
+                                 <font>
+                                    <Font name="System Bold" size="57.0" />
+                                 </font>
+                                 <textFill>
+                                    <LinearGradient endX="1.0" endY="1.0">
+                                       <stops>
+                                          <Stop color="#a11616" />
+                                          <Stop color="#29559a" offset="1.0" />
+                                       </stops>
+                                    </LinearGradient>
+                                 </textFill>
+                              </Label>
+                                    </children>
+                                </AnchorPane>
+                            </content>
+                        </Tab>
+                        <Tab onSelectionChanged="#callBackRecargaExamen" style="-fx-background-color: #76A6DC;" text="Preguntas">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #B6C7DC;">
+                                    <children>
+                              <Label layoutX="175.0" layoutY="10.0" prefHeight="84.0" prefWidth="382.0" text="Preguntas">
+                                 <font>
+                                    <Font name="System Bold" size="57.0" />
+                                 </font>
+                                 <textFill>
+                                    <LinearGradient endX="1.0" endY="1.0">
+                                       <stops>
+                                          <Stop color="#a11616" />
+                                          <Stop color="#29559a" offset="1.0" />
+                                       </stops>
+                                    </LinearGradient>
+                                 </textFill>
+                              </Label>
+                                        <Label layoutX="134.0" layoutY="96.0" text="ID:">
+                                            <font>
+                                                <Font size="14.0" />
+                                            </font>
+                                        </Label>
+                                        <Label fx:id="lblIDPregunta" layoutX="159.0" layoutY="96.0" prefHeight="20.0" prefWidth="13.0" text="_">
+                                            <font>
+                                                <Font size="14.0" />
+                                            </font>
+                                        </Label>
+                                        <TextField fx:id="txtPregunta" layoutX="172.0" layoutY="94.0" prefHeight="25.0" prefWidth="434.0" promptText="Pregunta" />
+                              <TextField fx:id="txtR1" layoutX="134.0" layoutY="129.0" prefHeight="25.0" prefWidth="472.0" promptText="R1" />
+                                        <TextField fx:id="txtR2" layoutX="134.0" layoutY="166.0" prefHeight="25.0" prefWidth="471.0" promptText="R2" />
+                              <TextField fx:id="txtR3" layoutX="134.0" layoutY="203.0" prefHeight="25.0" prefWidth="470.0" promptText="R3" />
+                              <TextField fx:id="txtCorrecta" layoutX="134.0" layoutY="236.0" prefHeight="25.0" prefWidth="247.0" promptText="Correcta" />
+                                        <ComboBox fx:id="comboExamen" layoutX="392.0" layoutY="236.0" prefHeight="27.0" prefWidth="211.0" promptText="Examen" />
+                                        <Button fx:id="btnAltaPregunta" layoutX="132.0" layoutY="272.0" mnemonicParsing="false" onAction="#callbackAltaPregunta" style="-fx-background-color: #25D385;" text="Alta " />
+                                        <Button fx:id="btnModificarPregunta" layoutX="191.0" layoutY="272.0" mnemonicParsing="false" onAction="#callBackModificarTablaPregunta" style="-fx-background-color: #1A8ED5;" text="Modificar" />
+                                        <Button fx:id="btnEliminarPregunta" layoutX="276.0" layoutY="272.0" mnemonicParsing="false" onAction="#callBackEliminaPregunta" style="-fx-background-color: #F1535A;" text="Eliminar" />
+                                        <TableView fx:id="tablaPreguntas" layoutX="133.0" layoutY="310.0" onMousePressed="#callbackClicTablaPregunta" prefHeight="192.0" prefWidth="467.0">
+                                            <columns>
+                                                <TableColumn fx:id="colIDPreguntas" prefWidth="36.0" text="ID" />
+                                                <TableColumn fx:id="colPregunta" prefWidth="114.0" text="Pregunta" />
+                                                <TableColumn fx:id="colR1" prefWidth="44.0" text="R1" />
+                                                <TableColumn fx:id="colR2" prefWidth="39.0" text="R2" />
+                                    <TableColumn fx:id="colR3" prefWidth="61.0" text="R3" />
+                                    <TableColumn fx:id="colCorrecta" prefWidth="93.0" text="Correcta" />
+                                    <TableColumn fx:id="colExamen" prefWidth="78.0" text="Examen" />
+                                            </columns>
+                                        </TableView>
+                                    </children>
+                                </AnchorPane>
+                            </content>
+                        </Tab>
+                        <Tab fx:id="tabConsultas" onSelectionChanged="#callBackRecargaExamenRealizar" style="-fx-background-color: #76A6DC;" text="Realizar Examen">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #B6C7DC;">
+                                    <children>
+                                        <Button fx:id="btnEmpezarExamen" layoutX="394.0" layoutY="25.0" mnemonicParsing="false" onAction="#callBackConsultarPreguntas" text="Empezar Examen" />
+                              <ComboBox fx:id="comboElejirExamen" layoutX="177.0" layoutY="25.0" prefHeight="25.0" prefWidth="204.0" promptText="Elejir Examen" />
+                              <Label fx:id="lblPreguntaExamenRealizar" layoutX="107.0" layoutY="77.0" text="Enunciado de la pregunta" />
+                              <RadioButton fx:id="radio1" layoutX="107.0" layoutY="136.0" mnemonicParsing="false" text="Respuesta 1" />
+                              <RadioButton fx:id="radio2" layoutX="107.0" layoutY="176.0" mnemonicParsing="false" text="Respuesta 2" />
+                              <RadioButton fx:id="radio3" layoutX="107.0" layoutY="216.0" mnemonicParsing="false" text="Respuesta 3" />
+                              <Button fx:id="btnResponder" layoutX="253.0" layoutY="285.0" mnemonicParsing="false" onAction="#responderExamen" text="Responder" />
+                              <Label fx:id="lblCorrecto" layoutX="512.0" layoutY="78.0" prefHeight="17.0" prefWidth="85.0" text="    " textFill="#03f257" />
+                              <Label fx:id="lblIncorrecta" layoutX="579.0" layoutY="78.0" prefHeight="17.0" prefWidth="98.0" text="     " textFill="#ff0101" />
+                              <Label fx:id="lblContadorRespuestas" layoutX="105.0" layoutY="381.0" prefHeight="17.0" prefWidth="572.0" text="Correctas:                       Incorrectas:" />
+                                    </children>
+                                </AnchorPane>
+                            </content>
+                        </Tab>
+                    </tabs>
+                </TabPane>
+            </center>
+        </BorderPane>
+    </children>
+</GridPane>
